@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple static website with NGINX</title>
+
+    <!-- Load the JS file that will read a stats file from the server -->
+    <script type="text/javascript" src="stats_loader.js"></script>
+</head>
+
+<body>
+    <!-- Where the stats will be displayed -->
+    <div id="stats-container"></div>
+
+    <script type="text/javascript">
+      const filename = 'charlie_stats.txt'
+
+      // The `loadStudentStats` function used here is defined in `stats_loader.js`.
+      const statsContent = loadStudentStats(filename)
+
+      // FYI - the <pre> tag displays text in a codeblock-like format
+      const statsElement = document.createElement('pre')
+      statsElement.innerText = statsContent
+
+      // Add the new HTML element with the stats to the document
+      const statsContainer = document.getElementById('stats-container')
+      statsContainer.appendChild(statsContent)
+    </script>
+</body>
+</html>
