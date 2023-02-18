@@ -10,22 +10,25 @@
 </head>
 
 <body>
-    <!-- Where the stats will be displayed -->
-    <div id="stats-container"></div>
-
     <script type="text/javascript">
-      const filename = 'charlie_stats.txt'
+      // Load the stats for Charlie
+      const filename = 'charlie.txt';
 
-      // The `loadStudentStats` function used here is defined in `stats_loader.js`.
-      const statsContent = loadStudentStats(filename)
+      loadStudentStats(filename, function(stats) {
+        // Runs after the stats are loaded from the server - 
+        // adds the stats to the page
+        const statsElement = document.createElement('div');
 
-      // FYI - the <pre> tag displays text in a codeblock-like format
-      const statsElement = document.createElement('pre')
-      statsElement.innerText = statsContent
+        Object.entries(stats).forEach(([key, value]) => {
+          const row = document.createElement('p');
+          row.innerText += `${key}: ${value}`;
+          statsElement.appendChild(row);
+        });
 
-      // Add the new HTML element with the stats to the document
-      const statsContainer = document.getElementById('stats-container')
-      statsContainer.appendChild(statsContent)
+        console.log(statsElement);
+        
+        document.body.appendChild(statsElement);
+      });
     </script>
 </body>
 </html>

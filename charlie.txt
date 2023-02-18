@@ -1,0 +1,4 @@
+time_spent: 2h30m
+lines_added: 100
+lines_removed: 200
+files_changed: 300
