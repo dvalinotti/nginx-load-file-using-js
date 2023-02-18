@@ -1,3 +1,5 @@
+# Where to put the files in this repo
+
 | file            | server file system location |   |   |   |
 |-----------------|-----------------------------|---|---|---|
 | nginx.conf      | /etc/nginx                  |   |   |   |
